@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+.clientComp {
+  flex: 1;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

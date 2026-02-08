@@ -1,11 +1,12 @@
-function ReusableComp() {
+function ReusableComp(props) {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">OUR CLIENTS</h1>
-      <div className="clientContainer flex-col">
-        <img src={props.image} alt={props.name} />
-        <p>{props.clientName}</p>
+      <div className="clientComp flex-col flex items-center">
+        <img src={props.image} className="w-25" />
+        <h5>{props.value}</h5>
+        <p>{props.description}</p>
       </div>
     </>
   );
 }
+export default ReusableComp;
