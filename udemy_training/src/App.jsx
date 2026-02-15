@@ -6,14 +6,17 @@ import TabButton from "./Components/TabButton.jsx";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { CORE_CONCEPTS } from "./data.js";
+import { EXAMPLES } from "./data.js";
+import { jsx } from "react/jsx-runtime";
 
 function Header() {
   return <header>This is the header</header>;
 }
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState("components");
   function handleSelect(selectedButton) {
-    console.log(selectedButton);
+    setSelectedTopic(selectedButton);
   }
   return (
     <>
@@ -47,6 +50,11 @@ function App() {
           <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
           <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
         </menu>
+        <div>
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </div>
       </section>
     </>
   );
