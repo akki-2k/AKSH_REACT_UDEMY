@@ -8,6 +8,7 @@ import "./App.css";
 import { CORE_CONCEPTS } from "./data.js";
 import { EXAMPLES } from "./data.js";
 import { jsx } from "react/jsx-runtime";
+import Section from "./Components/Section.jsx";
 
 function Header() {
   return <header>This is the header</header>;
@@ -33,7 +34,6 @@ function App() {
   return (
     <>
       <h1>UDEMY REACT COURSE</h1>
-
       <h1 className="">Our Values</h1>
       <div className="clientContainer mt-10 flex-row flex">
         {/* ITERATING LIST OF OBJECTS TO CREATE REUSABLE COMPONENTS DYNAMICALLY */}
@@ -43,36 +43,35 @@ function App() {
           ))}
         </ul>
       </div>
-      <section id="examples">
-        <h2>Examples</h2>
+      <Section id="examples" title="Examples">
         <menu>
           <TabButton
             isSelected={selectedTopic === "components"}
-            onSelect={() => handleSelect("components")}
+            onClick={() => handleSelect("components")}
           >
             Components
           </TabButton>
           <TabButton
             isSelected={selectedTopic === "jsx"}
-            onSelect={() => handleSelect("jsx")}
+            onClick={() => handleSelect("jsx")}
           >
             JSX
           </TabButton>
           <TabButton
             isSelected={selectedTopic === "props"}
-            onSelect={() => handleSelect("props")}
+            onClick={() => handleSelect("props")}
           >
             Props
           </TabButton>
           <TabButton
             isSelected={selectedTopic === "state"}
-            onSelect={() => handleSelect("state")}
+            onClick={() => handleSelect("state")}
           >
             State
           </TabButton>
         </menu>
         {tabContent}
-      </section>
+      </Section>
     </>
   );
 }
