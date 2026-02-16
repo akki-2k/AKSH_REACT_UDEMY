@@ -14,47 +14,64 @@ function Header() {
 }
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState("");
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }
+
+  let tabContent = "Please select a topic";
+  if (selectedTopic) {
+    tabContent = (
+      <div>
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <code>{EXAMPLES[selectedTopic].code}</code>
+      </div>
+    );
+  }
+
   return (
     <>
       <h1>UDEMY REACT COURSE</h1>
 
       <h1 className="">Our Values</h1>
       <div className="clientContainer mt-10 flex-row flex">
-        <ReusableComp
-          image="/src/assets/coder.png"
-          value={CORE_CONCEPTS[0].title}
-          description="{CORE_CONCEPTS[0].description}"
-        />
-        <ReusableComp
-          image="/src/assets/coder.png"
-          value={CORE_CONCEPTS[1].title}
-          description={CORE_CONCEPTS[1].description}
-        />
-        <ReusableComp
-          image="/src/assets/coder.png"
-          value={CORE_CONCEPTS[2].title}
-          description={CORE_CONCEPTS[2].description}
-        />
+        {/* ITERATING LIST OF OBJECTS TO CREATE REUSABLE COMPONENTS DYNAMICALLY */}
+        <ul>
+          {CORE_CONCEPTS.map((conceptItem) => (
+            <ReusableComp {...conceptItem} />
+          ))}
+        </ul>
       </div>
       <section id="examples">
         <h2>Examples</h2>
         <menu>
-          <TabButton onSelect={() => handleSelect("components")}>
+          <TabButton
+            isSelected={selectedTopic === "components"}
+            onSelect={() => handleSelect("components")}
+          >
             Components
           </TabButton>
-          <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-          <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-          <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+          <TabButton
+            isSelected={selectedTopic === "jsx"}
+            onSelect={() => handleSelect("jsx")}
+          >
+            JSX
+          </TabButton>
+          <TabButton
+            isSelected={selectedTopic === "props"}
+            onSelect={() => handleSelect("props")}
+          >
+            Props
+          </TabButton>
+          <TabButton
+            isSelected={selectedTopic === "state"}
+            onSelect={() => handleSelect("state")}
+          >
+            State
+          </TabButton>
         </menu>
-        <div>
-          <h3>{EXAMPLES[selectedTopic].title}</h3>
-          <p>{EXAMPLES[selectedTopic].description}</p>
-          <code>{EXAMPLES[selectedTopic].code}</code>
-        </div>
+        {tabContent}
       </section>
     </>
   );
