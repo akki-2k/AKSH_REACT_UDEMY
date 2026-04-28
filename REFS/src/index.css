@@ -1,0 +1,371 @@
+/* ============================================================
+   DESKTOP-FIRST: Base styles for desktop/largest screens
+   ============================================================ */
+
+.comparison__products {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  padding-bottom: 20px;
+  olumn-gap: 40px;
+}
+
+.comparison__product-top-wrap {
+  display: contents;
+  border: 0.5px solid #e4e2e2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  c
+}
+
+.comparison__product {
+  grid-row: 1;
+}
+
+.product-attribute--1 {
+  grid-row: 2;
+}
+
+.product-attribute--2 {
+  grid-row: 3;
+}
+
+.product-attribute--3 {
+  grid-row: 4;
+}
+
+.product-attribute--4 {
+  grid-row: 5;
+}
+
+.comparison__product,
+.comparison__placeholder,
+.comparison-top__placeholder {
+  flex: 1;
+}
+
+.comparison__product-top-matter img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 265px;
+  max-height: 167px;
+  margin: 0 auto 24px;
+}
+
+.comparison__products:has(.comparison__product-top-wrap:nth-child(2)):not(
+    :has(.comparison__product-top-wrap:nth-child(3))
+  ) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.comparison__products:has(.comparison__product-top-wrap:nth-child(3)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.comparison__product-top-matter a,
+.comparison__product-top-matter button {
+  margin: 0 auto;
+}
+
+.comparison__product-top-matter h4 {
+  max-width: 300px;
+  min-height: 120px;
+  margin: 0 auto 20px;
+  /* font-family: "Merriweather", sans-serif;
+  font-size: 24px;
+  font-weight: 300; */
+  text-align: center;
+}
+
+.comparison__product-top-matter button,
+a.product__learn-more,
+a.product__apply {
+  display: block;
+}
+
+button.product__comparison-remove {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 40px;
+  color: #707070;
+}
+
+button.product__comparison-remove::before {
+  position: absolute;
+  content: "";
+  background-image: url("../../../etc.clientlibs/fleetcardsusa/clientlibs/clientlib-site/resources/images/Font_Awesome_5_solid_times-circle.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 24px;
+  width: 24px;
+  left: 0;
+  top: -1px;
+  z-index: -1;
+}
+
+.comparison-top__add-compare {
+  display: block;
+  margin: 0 auto;
+  padding-top: 72px;
+}
+
+.comparison-top__add-compare img {
+  max-width: 120px;
+  margin-bottom: 22px;
+}
+
+.attribute-title {
+  position: relative;
+  min-height: 65px;
+  padding: 18px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+
+.attribute-title button {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+div[class^="product-attribute--"][class$="__wrap"]
+  div:last-child
+  .attribute-title
+  button {
+  display: block;
+  position: absolute;
+  top: 14px;
+  right: 0;
+}
+
+[description-hidden] .attribute-title button {
+  transform: rotate(180deg);
+  transition: all 0.5s ease;
+}
+
+[description-hidden] .attribute-description {
+  display: none;
+}
+
+[description-hidden] .attribute-title:not(.product-attribute__4--title) {
+  border-bottom: none;
+}
+
+.attribute-description ul {
+  max-width: 82%;
+  padding: 30px 0 40px;
+  line-height: 2.14;
+}
+
+.attribute-description li {
+  position: relative;
+  /* font-size: 14px; */
+  padding-left: 10px;
+}
+
+.attribute-description li::before {
+  position: absolute;
+  content: "";
+  background-color: #2f4267;
+  height: 4px;
+  width: 4px;
+  top: 12px;
+  left: 0;
+  border-radius: 50%;
+}
+
+.product-attribute--1,
+.product-attribute--2,
+.product-attribute--3,
+.product-attribute--4 {
+  flex: 1;
+}
+
+.comparison__disclaimers {
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.comparison__disclaimers h3 {
+  /* font-size: 22px; */
+}
+
+.comparison__heading {
+  background-color: #ebf7f5;
+}
+
+.comparison__back,
+.comparison__heading h3 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comparison__heading h3 {
+  padding: 30px 0;
+}
+
+.comparison__back {
+  position: relative;
+  padding: 30px 0 34px;
+}
+
+.comparison__back::before {
+  position: absolute;
+  content: "";
+  background-image: url("../../../etc.clientlibs/fleetcardsusa/clientlibs/clientlib-site/resources/images/Ic_chevron_left_48px.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 30px;
+  height: 30px;
+  width: 30px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  z-index: -1;
+}
+
+.comparison__back button {
+  padding-left: 52px;
+  /* font-size: 14px; */
+  line-height: 2.2;
+}
+
+/* Medium tablets and mobile (max-width: 759px) */
+@media (max-width: 768px) {
+  button.product__comparison-remove {
+    margin-bottom: 20px;
+    /* font-size: 14px; */
+  }
+
+  button.product__comparison-remove::before {
+    top: 1px;
+    height: 18px;
+    width: 18px;
+  }
+
+  .attribute-title {
+    min-height: 37px;
+    padding: 8px 0;
+    /* font-size: 12px; */
+    font-weight: 500;
+  }
+
+  div[class^="product-attribute--"][class$="__wrap"]
+    div:last-child
+    .attribute-title
+    button {
+    top: 0;
+  }
+
+  .attribute-description li {
+    /* font-size: 12px; */
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+
+  .attribute-description li::before {
+    top: 6px;
+  }
+
+  .comparison__products {
+    display: block !important;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .comparison__products::-webkit-scrollbar {
+    display: none;
+  }
+
+  .comparison__product {
+    max-width: 100%;
+    margin: unset;
+  }
+
+  .comparison__product-top-matter a.product__apply {
+    margin: unset;
+    max-width: none;
+  }
+  .comparison__product-top-matter a.product__learn-more {
+    max-width: unset;
+  }
+
+  .comparison__product-top-wrap {
+    display: inline-flex;
+    margin-right: 18px;
+    flex-direction: column;
+    width: 85%;
+    white-space: normal;
+    scroll-snap-align: start;
+    vertical-align: top;
+    padding: 40px 12px;
+  }
+  .product-attribute--1,
+  .product-attribute--2,
+  .product-attribute--3,
+  .product-attribute--4 {
+    max-width: none;
+    margin: unset;
+  }
+}
+
+/* Small mobile (max-width: 579px) */
+@media (max-width: 579px) {
+  .comparison__product-top-matter img {
+    /* max-width: 130px; */
+  }
+
+  .comparison__product-top-matter h4 {
+    /* font-size: 14px; */
+    min-height: 68px;
+  }
+
+  .attribute-description ul {
+    padding: 16px 0 20px;
+  }
+}
+
+/* Extra small mobile (max-width: 479px) */
+@media (max-width: 479px) {
+  .comparison__product-top-matter h4 {
+    /* font-size: 12px; */
+    min-height: unset;
+  }
+
+  .attribute-title {
+    /* font-size: 10px; */
+    min-height: unset;
+    padding: 6px 0;
+  }
+
+  .attribute-description li {
+    /* font-size: 11px; */
+  }
+}
+
+/* css to remove
+@media (max-width: 759px) {
+    .product-attribute--1, .product-attribute--2, .product-attribute--3, .product-attribute--4 {
+        max-width: 98%;
+        margin: 0 auto;
+    }
+} 
+ @media (max-width: 479px) {
+    .product-attribute--1, .product-attribute--2, .product-attribute--3, .product-attribute--4 {
+         max-width: 180px;
+        margin: 0 auto;
+    }
+} 
+@media (max-width: 759px) {
+    .comparison__product {
+    margin
+    }    
+*/
