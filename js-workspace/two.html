@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai Aur JS</title>
+  </head>
+  <body>
+    <h1>This is old text</h1>
+    <button id="stop">stop button</button>
+    <button id="start">start button</button>
+  </body>
+  <script>
+    const sayDate = function () {
+      console.log("interval pr", Date.now());
+    };
+    const intervalId = setIntrval(sayDate, 1000, "hi");
+
+    clearInterval(intervalId);
+  </script>
+</html>
