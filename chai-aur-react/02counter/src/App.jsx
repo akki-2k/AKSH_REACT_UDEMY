@@ -4,9 +4,10 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(2);
   const increaseCount = () => {
-    if (count < 20) {
-      setCount(count + 1);
-    }
+    setCount((prevValue)=> (prevValue+1));
+    setCount((prevValue)=> (prevValue+1));
+    setCount((prevValue)=> (prevValue+1));
+    
   };
   const decreaseCount = () => {
     if (count > 0) {
